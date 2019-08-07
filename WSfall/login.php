@@ -24,40 +24,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 
-$userid = $request->userid;
-$passwd = $request->passwd;
+$username = $request->username;
+$passwd = $request->password;
 
 //$userid = "me@home";
 //$passwd = "1234";
 
 
-if (isset($postdata) && $userid != "" && $passwd !="" ) {
+if (isset($postdata) && $username != "" && $passwd !="" ) {
 
   include ('./db.inc.php');
 
 
-  $MySql = "SELECT id FROM FALLutente WHERE userid = '".addslashes($userid)."' AND passwd = '".addslashes($passwd)."'";
-    $Result = mysql_query($MySql);
-  if ( $res = mysql_fetch_array($Result)   ) {
+  $MySql = "SELECT * FROM FALLutente WHERE username = '".addslashes($username)."' AND passwd = '".addslashes($passwd)."'";
+  $Result = mysql_query($MySql);
+  if ( $res = mysql_fetch_array($Result,MYSQL_ASSOC)   ) {
 
-    $id = $res['id'];
+    $newout = [
+      "status" => 'success' ,
+      "user" => $res
+    ];
 
-    $MySql = "SELECT * FROM FALLutente
-      WHERE id = '$id' ";
+    $output = json_encode($newout);
+    echo $output;
 
-    $Result = mysql_query($MySql);
-    if ( $res = mysql_fetch_array($Result,MYSQL_ASSOC)   ) {
-
-      $newout = [
-        "status" => 'success' ,
-        "user" => $res
-      ];
-
-      $output = json_encode($newout);
-      echo $output;
-    } else {
-        header("HTTP/1.1 404 Not Found");
-    }
   } else {
     header("HTTP/1.1 401 Unauthorized");
   }

@@ -24,8 +24,9 @@ import { HttpClient } from '@angular/common/http';
  * If the `status` field is not `success`, then an error is detected and returned.
  */
  export class DatiUtente {
-   public id: number;
    public userid: number;
+   public username: string;
+   public passwd: string;
    public Nome: string;
    public scheda: number;
    public Costituzione: number;
@@ -39,8 +40,9 @@ import { HttpClient } from '@angular/common/http';
    public RAD: number;
    public VENOM: number;
    constructor () {
-     this.id = 0;
-     this.userid = '' ;
+     this.userid = 0;
+     this.username = '' ;
+     this.passwd = '' ;
      this.Nome = '';
      this.scheda = 1;
      this.Costituzione =  0;
@@ -63,7 +65,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class User {
   _user: any;
-  url: string = 'https://www.roma-by-night.it/Fall/WSfall/';
+  url: string = 'https://www.roma-by-night.it/Fall/';
 
   constructor(public http: HttpClient) { }
 
@@ -94,13 +96,6 @@ export class User {
 
 
 
-  getusr() {
-    //console.log("inside getuser");
-    return this.http.get(this.url + 'getusr.php?id='+this._user.IDutente);
-
-  }
-
-
   /**
    * Log the user out, which forgets the session
    */
@@ -113,6 +108,18 @@ export class User {
    */
   _loggedIn(resp) {
     this._user = resp.user;
+    this._user.Costituzione = Number ( this._user.Costituzione);
+    this._user.Riparazione = Number ( this._user.Riparazione);
+    this._user.Medicina = Number ( this._user.Medicina);
+    this._user.Scasso = Number ( this._user.Scasso);
+    this._user.Esplosivi = Number ( this._user.Esplosivi);
+    this._user.Tempra = Number ( this._user.Tempra);
+    this._user.Chimica = Number ( this._user.Chimica);
+    this._user.Scienza = Number ( this._user.Scienza);
+    this._user.RAD = Number ( this._user.RAD);
+    this._user.VENOM = Number ( this._user.VENOM);
+
+
     //console.log(this._user);
   }
 }
