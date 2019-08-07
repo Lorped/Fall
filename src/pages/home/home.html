@@ -23,13 +23,9 @@
         <ion-row>
           <ion-col col-6>Costituzione</ion-col>
 
-          <ion-col col> <i *ngFor="let i of 5 | timesPipe ; let ix = index" class="fa fa-circle" [ngClass]="{'white': ix+1 > mieidati.Costituzione , 'dred': ix < mieidati.Costituzione }"></i> </ion-col>
+          <ion-col col> <i *ngFor="let i of 5 | timesPipe ; let ix = index" class="fa fa-square" [ngClass]="{'white': ix+1 > mieidati.Costituzione , 'dred': ix < mieidati.Costituzione }">&nbsp;</i> </ion-col>
 
-          <ion-col col-1>x</ion-col>
-          <ion-col col-1>x</ion-col>
-          <ion-col col-1>x</ion-col>
-          <ion-col col-1>x</ion-col>
-          <ion-col col-1>&nbsp;</ion-col>
+
         </ion-row>
         <ion-row>
           <ion-col col-6>Riparazione</ion-col>
