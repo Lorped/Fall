@@ -4,11 +4,23 @@
 const existingConfig = require('../node_modules/@ionic/app-scripts/config/copy.config');
 module.exports = Object.assign(existingConfig, {
     copyFontawesomeFonts: {
-      src: ['{{ROOT}}/node_modules/font-awesome/fonts/**/*'],
-      dest: '{{WWW}}/assets/fonts'
+      src: ['{{ROOT}}/node_modules/@fortawesome/fontawesome-free/webfonts/**/*'],
+      dest: '{{WWW}}/assets/webfonts'
     },
     copyFontawesomeCss: {
-      src: ['{{ROOT}}/node_modules/font-awesome/css/font-awesome.min.css'],
+      src: ['{{ROOT}}/node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css'],
+      dest: '{{WWW}}/assets/css'
+    },
+    copyFontawesomeCss2: {
+      src: ['{{ROOT}}/node_modules/@fortawesome/fontawesome-free/css/solid.min.css'],
+      dest: '{{WWW}}/assets/css'
+    },
+    copyFontawesomeCss3: {
+      src: ['{{ROOT}}/node_modules/@fortawesome/fontawesome-free/css/brands.min.css'],
+      dest: '{{WWW}}/assets/css'
+    },
+    copyFontawesomeCss4: {
+      src: ['{{ROOT}}/node_modules/@fortawesome/fontawesome-free/css/regular.min.css'],
       dest: '{{WWW}}/assets/css'
     }
   }

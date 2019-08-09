@@ -16,23 +16,33 @@
 
 <ion-grid>
 
-  <ion-row style="text-align: center;">
-    <ion-col col-2>&nbsp;</ion-col>
-    <ion-col col-2><span class="myfont">DATA</span></ion-col>
-    <ion-col col-2>&nbsp;</ion-col>
-    <ion-col col-2 style="border-bottom: 2px solid; border-right: 2px solid;" >&nbsp;</ion-col>
-    <ion-col col-2><span class="myfont">STAT</span></ion-col>
-    <ion-col col-2 style="border-bottom: 2px solid; border-left: 2px solid;" >&nbsp;</ion-col>
-  </ion-row>
+
   <ion-row>
     <ion-col col-6>
       <!--  parte a sinistra -->
+      <ion-grid>
+        <ion-row style="text-align: center;">
+          <ion-col col-4 style="border-bottom: 1px solid; border-right: 1px solid; " >&nbsp;</ion-col>
+          <ion-col col-4><span class="myfont">DATA</span></ion-col>
+          <ion-col col-4 style="border-bottom: 1px solid; border-left: 1px solid; " >&nbsp;</ion-col>
+        </ion-row>
+      </ion-grid>
+      <!--  parte a sinistra -corpo -->
+      <!--  FINE parte a sinistra -->
     </ion-col>
     <ion-col col-6>
       <!--  parte a destra -->
       <ion-grid>
+        <ion-row style="text-align: center;">
+          <ion-col col-4 style="border-bottom: 1px solid; border-right: 1px solid; " >&nbsp;</ion-col>
+          <ion-col col-4><span class="myfont">STAT</span></ion-col>
+          <ion-col col-4 style="border-bottom: 1px solid; border-left: 1px solid; " >&nbsp;</ion-col>
+        </ion-row>
+      </ion-grid>
+      <!--  parte a destra - corpo -->
+      <ion-grid>
         <ion-row>
-          <ion-col col-1><i class="fa fa-bar-chart mygreen"></i></ion-col>
+          <ion-col col-1><i class="fas fa-chart-bar mygreen"></i></ion-col>
           <ion-col col-5>COSTITUZIONE</ion-col>
           <ion-col col> <i *ngFor="let i of 5 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Costituzione , 'mygreen': ix < mieidati.Costituzione }">&nbsp;</i> </ion-col>
         </ion-row>
@@ -62,7 +72,7 @@
           <ion-col col> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Tempra , 'mygreen': ix < mieidati.Tempra }">&nbsp;</i> </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-1><i class="fa fa-thermometer-half mygreen"></i></ion-col>
+          <ion-col col-1><i class="fas fa-vial mygreen"></i></ion-col>
           <ion-col col-5>Chimica</ion-col>
           <ion-col col> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Chimica , 'mygreen': ix < mieidati.Chimica }">&nbsp;</i> </ion-col>
         </ion-row>
@@ -72,7 +82,7 @@
           <ion-col col> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Scienza , 'mygreen': ix < mieidati.Scienza }">&nbsp;</i> </ion-col>
         </ion-row>
       </ion-grid>
-
+      <!--  FINE parte a destra -->
     </ion-col>
   </ion-row>
 </ion-grid>
