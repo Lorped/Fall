@@ -20,16 +20,41 @@ import { User, DatiUtente } from '../../providers/users';
 export class HomePage {
 
   mieidati = new DatiUtente();
+  maxRAD = 3;
+  maxVENOM = 3;
 
   constructor(public user: User, public navCtrl: NavController, public navParams: NavParams) {
 
     this.mieidati=this.user.getinfo();
-    console.log( this.user.getinfo() );
-    console.log(this.mieidati);
+
+    if (this.mieidati.Tempra == 1) {
+      this.mieidati.RAD += 1;
+      this.maxRAD += 1;
+    }
+    if (this.mieidati.Tempra == 2) {
+      this.mieidati.RAD += 1;
+      this.maxRAD += 1;
+      this.mieidati.VENOM += 1;
+      this.maxVENOM += 1;
+    }
+    if (this.mieidati.Tempra == 3) {
+      this.mieidati.RAD += 2;
+      this.maxRAD += 2;
+      this.mieidati.VENOM += 1;
+      this.maxVENOM += 1;
+    }
+    //console.log( this.user.getinfo() );
+    //console.log(this.mieidati);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    //console.log('ionViewDidLoad HomePage');
   }
+
+  goback() {
+    //this.navCtrl.push('LoginPage');
+    this.navCtrl.pop();
+  }
+
 
 }

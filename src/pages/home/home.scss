@@ -8,6 +8,9 @@ page-home {
   .bigicon {
     font-size: 1.5em !important;
   }
+  .verybigicon {
+    font-size: 2.2em !important;
+  }
   .mainbg {
     background-color: #000000;
     color: #33ff33;
@@ -17,5 +20,20 @@ page-home {
   .myfont {
     font-family: 'overseer' !important;
     font-size: 2em;
+  }
+
+  .leftboxes {
+    border: 2px solid;
+    border-color: #33ff33;
+    background-color:#bbffbb;
+    color: #000000;
+  }
+  .mybutton {
+    background-color: #000000;
+    color: #33ff33;
+    border: 1px solid  #bbffbb;
+    font-size: 1.1em;
+    display: block;
+    width: 100%;
   }
 }

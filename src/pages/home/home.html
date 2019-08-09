@@ -22,12 +22,59 @@
       <!--  parte a sinistra -->
       <ion-grid>
         <ion-row style="text-align: center;">
-          <ion-col col-4 style="border-bottom: 1px solid; border-right: 1px solid; " >&nbsp;</ion-col>
+          <ion-col col-4 style="border-bottom: 1px solid; border-right: 1px solid; " ><i class="fas fa-cogs verybigicon" (click)="goback();"></i></ion-col>
           <ion-col col-4><span class="myfont">DATA</span></ion-col>
           <ion-col col-4 style="border-bottom: 1px solid; border-left: 1px solid; " >&nbsp;</ion-col>
         </ion-row>
       </ion-grid>
       <!--  parte a sinistra -corpo -->
+      <ion-grid style="text-align: center;">
+        <!---
+        <ion-row>
+          <ion-col >GIOCATORE</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2>&nbsp;</ion-col>
+          <ion-col class="leftboxes">{{mieidati.username}}</ion-col>
+          <ion-col col-2>&nbsp;</ion-col>
+        </ion-row>
+        -->
+        <ion-row >
+          <ion-col >PERSONAGGIO</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2>&nbsp;</ion-col>
+          <ion-col class="leftboxes">{{mieidati.Nome}}</ion-col>
+          <ion-col col-2>&nbsp;</ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col >GRUPPO</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2>&nbsp;</ion-col>
+          <ion-col class="leftboxes">{{mieidati.Gruppo}}</ion-col>
+          <ion-col col-2>&nbsp;</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+
+            <ion-grid>
+              <ion-row style="text-align: left;">
+                <ion-col col-4><button class="mybutton" onclick="myRAD()">RAD</button></ion-col>
+                <ion-col col-8 > <i *ngFor="let i of maxRAD | timesPipe ; let ix = index" class="fas fa-radiation bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.RAD , 'mygreen': ix < mieidati.RAD }">&nbsp;&nbsp;</i> </ion-col>
+
+              </ion-row>
+              <ion-row style="text-align: left;">
+                <ion-col col-4><button class="mybutton" onclick="myVENOM()">VENOM</button></ion-col>
+                <ion-col col-8 > <i *ngFor="let i of maxVENOM | timesPipe ; let ix = index" class="fas fa-biohazard bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.VENOM , 'mygreen': ix < mieidati.VENOM }">&nbsp;</i> </ion-col>
+
+              </ion-row>
+            </ion-grid>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
       <!--  FINE parte a sinistra -->
     </ion-col>
     <ion-col col-6>
@@ -36,19 +83,19 @@
         <ion-row style="text-align: center;">
           <ion-col col-4 style="border-bottom: 1px solid; border-right: 1px solid; " >&nbsp;</ion-col>
           <ion-col col-4><span class="myfont">STAT</span></ion-col>
-          <ion-col col-4 style="border-bottom: 1px solid; border-left: 1px solid; " >&nbsp;</ion-col>
+          <ion-col col-4 style="border-bottom: 1px solid; border-left: 1px solid; " ><i class="fas fa-chart-bar verybigicon"></i></ion-col>
         </ion-row>
       </ion-grid>
       <!--  parte a destra - corpo -->
       <ion-grid>
         <ion-row>
-          <ion-col col-1><i class="fas fa-chart-bar mygreen"></i></ion-col>
-          <ion-col col-5>COSTITUZIONE</ion-col>
+          <ion-col col-1><i class="fa fa-heart mygreen"></i></ion-col>
+          <ion-col col-5>Costituzione</ion-col>
           <ion-col col> <i *ngFor="let i of 5 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Costituzione , 'mygreen': ix < mieidati.Costituzione }">&nbsp;</i> </ion-col>
         </ion-row>
         <ion-row>
           <ion-col col-1><i class="fa fa-wrench mygreen"></i></ion-col>
-          <ion-col col-5>RIPARAZIONE</ion-col>
+          <ion-col col-5>Riparazione</ion-col>
           <ion-col col> <i *ngFor="let i of 4 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Riparazione , 'mygreen': ix < mieidati.Riparazione }">&nbsp;</i> </ion-col>
         </ion-row>
         <ion-row>
@@ -67,7 +114,7 @@
           <ion-col col> <i *ngFor="let i of 5 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Esplosivi , 'mygreen': ix < mieidati.Esplosivi }">&nbsp;</i> </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col col-1><i class="fa fa-heart mygreen"></i></ion-col>
+          <ion-col col-1><i class="fas fa-chess-rook mygreen"></i></ion-col>
           <ion-col col-5>Tempra</ion-col>
           <ion-col col> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Tempra , 'mygreen': ix < mieidati.Tempra }">&nbsp;</i> </ion-col>
         </ion-row>
