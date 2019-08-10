@@ -66,6 +66,7 @@ export class HomePage {
   }
 
   myVENOM() {
+    this.navCtrl.push('ChangevenomPage' , { "parentPage": this  } );
 
   }
 
