@@ -60,12 +60,12 @@
 
             <ion-grid>
               <ion-row style="text-align: left;">
-                <ion-col col-4><button class="mybutton" onclick="myRAD()">RAD</button></ion-col>
+                <ion-col col-4><button class="mybutton" (click)="myRAD()">RAD</button></ion-col>
                 <ion-col col-8 > <i *ngFor="let i of maxRAD | timesPipe ; let ix = index" class="fas fa-radiation bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.RAD , 'mygreen': ix < mieidati.RAD }">&nbsp;&nbsp;</i> </ion-col>
 
               </ion-row>
               <ion-row style="text-align: left;">
-                <ion-col col-4><button class="mybutton" onclick="myVENOM()">VENOM</button></ion-col>
+                <ion-col col-4><button class="mybutton" (click)="myVENOM()">VENOM</button></ion-col>
                 <ion-col col-8 > <i *ngFor="let i of maxVENOM | timesPipe ; let ix = index" class="fas fa-biohazard bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.VENOM , 'mygreen': ix < mieidati.VENOM }">&nbsp;</i> </ion-col>
 
               </ion-row>

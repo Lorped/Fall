@@ -56,5 +56,13 @@ export class HomePage {
     this.navCtrl.pop();
   }
 
+  myRAD() {
+
+  }
+
+  myVENOM() {
+    
+  }
+
 
 }
