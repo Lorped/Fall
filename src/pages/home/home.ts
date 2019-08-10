@@ -43,25 +43,35 @@ export class HomePage {
       this.mieidati.VENOM += 1;
       this.maxVENOM += 1;
     }
-    //console.log( this.user.getinfo() );
-    //console.log(this.mieidati);
+
+    window.localStorage.setItem( "FALLmaxRAD" , this.maxRAD.toString() );
+    window.localStorage.setItem( "FALLlocalRAD" , this.mieidati.RAD.toString() );
+    window.localStorage.setItem( "FALLmaxVENOM" , this.maxVENOM.toString() );
+    window.localStorage.setItem( "FALLlocalVENOM" , this.mieidati.VENOM.toString() );
+    // console.log( this.user.getinfo() );
+    // console.log(this.mieidati);
   }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad HomePage');
+    // console.log('ionViewDidLoad HomePage');
   }
 
   goback() {
-    //this.navCtrl.push('LoginPage');
+    // this.navCtrl.push('LoginPage');
     this.navCtrl.pop();
   }
 
   myRAD() {
-
+    this.navCtrl.push('ChangeradPage' , { "parentPage": this  } );
   }
 
   myVENOM() {
-    
+
+  }
+
+  reload() {
+    this.mieidati.RAD = Number(window.localStorage.getItem( "FALLlocalRAD" ) );
+    this.mieidati.VENOM = Number(window.localStorage.getItem( "FALLlocalVENOM" ) );
   }
 
 
