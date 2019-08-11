@@ -1,4 +1,4 @@
-page-login {
+page-register2 {
   .mainbg {
     background-color: #000000;
     color: #33ff33;
@@ -19,7 +19,8 @@ page-login {
   .mybutton {
     background-color:#000000 !important;
     color: #bbffbb !important;
-    border: 1px solid  #bbffbb !important;
+    // border: 1px solid  #bbffbb !important;
+    font-size: 1.1em;
   }
 
   .mylink {
@@ -36,4 +37,11 @@ page-login {
     color: #666666;
   }
 
+  .mygreen {
+    color: #33ff33;
+  }
+  .lgreen {
+    //color: #bbffbb;
+    color: #559955;
+  }
 }

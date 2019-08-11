@@ -1,0 +1,42 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="mainbg">
+
+  <ion-row class="myfont">
+    Tales of WASTELAND - Registrazione 1/2
+  </ion-row>
+
+  <div class="login-box">
+    <form (submit)="doLogin()" #loginForm="ngForm">
+      <ion-grid>
+
+        <ion-row >
+          <ion-col col-2 style="vertical-align: middle;display: table-cell;">LOGIN</ion-col>
+          <ion-col col-9><ion-input type="text" [(ngModel)]="account.username" name="username"  required class="myclass"></ion-input></ion-col>
+          <ion-col col-1>&nbsp;</ion-col>
+        </ion-row>
+
+        <ion-row >
+          <ion-col col-2>PASSWORD</ion-col>
+          <ion-col col-9><ion-input [type]="passwordType" clearOnEdit="false" [(ngModel)]="account.password" name="password"  required class="myclass"></ion-input></ion-col>
+          <ion-col col-1><ion-icon [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon></ion-col>
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col>
+            <button ion-button class="mybutton"  block [disabled]="!loginForm.form.valid">Continua</button>
+          </ion-col>
+        </ion-row>
+
+
+      </ion-grid>
+
+    </form>
+
+  </div>
+</ion-content>
