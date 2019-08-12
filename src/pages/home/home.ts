@@ -58,7 +58,9 @@ export class HomePage {
 
   goback() {
     // this.navCtrl.push('LoginPage');
-    this.navCtrl.pop();
+    this.navCtrl.popToRoot();
+    // this.navCtrl.setRoot('LoginPage');
+
   }
 
   myRAD() {

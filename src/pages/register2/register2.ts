@@ -21,7 +21,7 @@ export class Register2Page {
   pxtot = 50;
   px = 50 ;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public user: User, public navCtrl: NavController, public navParams: NavParams) {
 
     this.mieidati.username = window.localStorage.getItem( "FALLuserid" );
     this.mieidati.passwd = window.localStorage.getItem( "FALLpassword" );
@@ -36,18 +36,17 @@ export class Register2Page {
   cost(xx: number) {
     this.mieidati.Costituzione = this.mieidati.Costituzione + xx ;
     this.px = this.px - xx * 10 ;
-
-    console.log ("cost" + this.mieidati.Costituzione ) ;
+    // console.log ("cost" + this.mieidati.Costituzione ) ;
   }
+
   espl(xx: number) {
     this.mieidati.Esplosivi = this.mieidati.Esplosivi + xx ;
     this.px = this.px - xx * 10 ;
-
-    console.log ("espl" + this.mieidati.Esplosivi ) ;
+    // console.log ("espl" + this.mieidati.Esplosivi ) ;
   }
+
   scas(xx: number) {
     this.mieidati.Scasso = this.mieidati.Scasso + xx ;
-
     if ( xx > 0 && this.mieidati.Scasso == 1 ) {
       this.px = this.px  - 10  ;
     }
@@ -66,19 +65,17 @@ export class Register2Page {
     if ( xx < 0 && this.mieidati.Scasso == 2 ) {
       this.px = this.px  + 20  ;
     }
-
-    console.log ("scas" + this.mieidati.Scasso ) ;
+    // console.log ("scas" + this.mieidati.Scasso ) ;
   }
+
   temp(xx: number) {
     this.mieidati.Tempra = this.mieidati.Tempra + xx ;
-
     this.px = this.px - xx * 10 ;
-
-    console.log ("Tempra" + this.mieidati.Tempra ) ;
+    // console.log ("Tempra" + this.mieidati.Tempra ) ;
   }
+
   chim(xx: number) {
     this.mieidati.Chimica = this.mieidati.Chimica + xx ;
-
     if ( xx > 0 && this.mieidati.Chimica == 1 ) {
       this.px = this.px  - 10  ;
     }
@@ -97,12 +94,11 @@ export class Register2Page {
     if ( xx < 0 && this.mieidati.Chimica == 2 ) {
       this.px = this.px  + 20  ;
     }
-
-    console.log ("Chimica" + this.mieidati.Chimica ) ;
+    // console.log ("Chimica" + this.mieidati.Chimica ) ;
   }
+
   scie(xx: number) {
     this.mieidati.Scienza = this.mieidati.Scienza + xx ;
-
     if ( xx > 0 && this.mieidati.Scienza == 1 ) {
       this.px = this.px  - 10  ;
     }
@@ -121,9 +117,9 @@ export class Register2Page {
     if ( xx < 0 && this.mieidati.Scienza == 2 ) {
       this.px = this.px  + 20  ;
     }
-
-    console.log ("Scienza" + this.mieidati.Scienza ) ;
+    // console.log ("Scienza" + this.mieidati.Scienza ) ;
   }
+
   ripa(xx: number) {
     this.mieidati.Riparazione = this.mieidati.Riparazione + xx ;
 
@@ -139,10 +135,9 @@ export class Register2Page {
     if ( xx < 0 && this.mieidati.Riparazione == 3 ) {
       this.px = this.px  + 20  ;
     }
-
-
-    console.log ("Riparazione" + this.mieidati.Riparazione ) ;
+    // console.log ("Riparazione" + this.mieidati.Riparazione ) ;
   }
+
   medi(xx: number) {
     this.mieidati.Medicina = this.mieidati.Medicina + xx ;
 
@@ -158,9 +153,21 @@ export class Register2Page {
     if ( xx < 0 && this.mieidati.Medicina == 3 ) {
       this.px = this.px  + 20  ;
     }
+    // console.log ("Medicina" + this.mieidati.Medicina ) ;
+  }
 
+  submit () {
+    this.user.register(this.mieidati).subscribe((resp) => {
 
-    console.log ("Medicina" + this.mieidati.Medicina ) ;
+      alert("Registrazione Completa");
+      // this.navCtrl.popToRoot();
+      this.navCtrl.push('HomePage');
+      // console.log( this.user.getinfo() );
+
+    }, (err) => {
+      alert("Errore di Registrazione");
+    });
+    // console.log (this.mieidati);
   }
 
 }

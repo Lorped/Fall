@@ -28,6 +28,7 @@ import { HttpClient } from '@angular/common/http';
    public username: string;
    public passwd: string;
    public Nome: string;
+   public Gruppo: string;
    public scheda: number;
    public Costituzione: number;
    public Riparazione: number;
@@ -44,6 +45,7 @@ import { HttpClient } from '@angular/common/http';
      this.username = '' ;
      this.passwd = '' ;
      this.Nome = '';
+     this.Gruppo = '';
      this.scheda = 1;
      this.Costituzione =  0;
      this.Riparazione = 0;
@@ -122,4 +124,22 @@ export class User {
 
     //console.log(this._user);
   }
+
+  register ( accountInfo: any ) {
+    let seq = this.http.post( this.url + 'register.php', accountInfo).share();
+
+    seq.subscribe((res: any) => {
+      // If the API returned a successful response, mark the user as logged in
+      if (res.status == 'success') {
+        this._loggedIn(res);
+      } else {
+        console.error('ERROR');
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
+
 }

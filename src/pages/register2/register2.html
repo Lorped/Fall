@@ -33,7 +33,7 @@
           </ion-row>
           <ion-row>
             <ion-col col-2>&nbsp;</ion-col>
-            <ion-col><ion-input type="text" [(ngModel)]="mieidati.Gruppo" name="username"  required class="myclass"></ion-input></ion-col>
+            <ion-col><ion-input type="text" [(ngModel)]="mieidati.Gruppo" name="grpname"  required class="myclass"></ion-input></ion-col>
             <ion-col col-2>&nbsp;</ion-col>
           </ion-row>
           <ion-row>
@@ -41,7 +41,11 @@
             <ion-col>Px Disponibili: <br>{{px}}/{{pxtot}}</ion-col>
             <ion-col col-2>&nbsp;</ion-col>
           </ion-row>
-
+          <ion-row>
+          <ion-col>
+            <button ion-button class="mybutton myborder"  block [disabled]="mieidati.Nome=='' || mieidati.Gruppo=='' || px != 0" (click)="submit()">Registra</button>
+          </ion-col>
+          </ion-row>
         </ion-grid>
 
         <!--  FINE parte a sinistra -->
