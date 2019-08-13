@@ -70,6 +70,18 @@
 
               </ion-row>
             </ion-grid>
+            <ion-grid>
+               <ion-row justify-content-center>
+                <ion-col col-2 class="fullborder"><i class="fab fa-empire" [ngClass]="{'lgreen': nummark < 4, 'mygreen': nummark > 3 }" (click)="cambiamark()"></i></ion-col>
+                <ion-col col-2 class="fullborder"><i class="fab fa-empire" [ngClass]="{'lgreen': nummark < 3, 'mygreen': nummark > 2 }" (click)="cambiamark()"></i></ion-col>
+              </ion-row>
+               <ion-row justify-content-center>
+                <ion-col col-2 class="fullborder"><i class="fab fa-empire" [ngClass]="{'lgreen': nummark < 2, 'mygreen': nummark > 1 }" (click)="cambiamark()"></i></ion-col>
+                <ion-col col-2 class="fullborder"><i class="fab fa-empire" [ngClass]="{'lgreen': nummark < 1, 'mygreen': nummark > 0 }" (click)="cambiamark()"></i></ion-col>
+              </ion-row>
+
+            </ion-grid>
+
 
           </ion-col>
         </ion-row>

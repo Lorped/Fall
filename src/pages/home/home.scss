@@ -37,4 +37,14 @@ page-home {
     display: block;
     width: 100%;
   }
+  .fullborder {
+    border: 1px solid;
+    border-color: #33ff33;
+    text-align: center;
+  }
+
+  .fab {
+    height: 16px !important;
+    width: 16px !important;
+  }
 }

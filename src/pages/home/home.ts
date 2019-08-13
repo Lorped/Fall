@@ -23,6 +23,8 @@ export class HomePage {
   maxRAD = 3;
   maxVENOM = 3;
 
+  nummark=4;
+
   constructor(public user: User, public navCtrl: NavController, public navParams: NavParams) {
 
     this.mieidati=this.user.getinfo();
@@ -75,6 +77,12 @@ export class HomePage {
   reload() {
     this.mieidati.RAD = Number(window.localStorage.getItem( "FALLlocalRAD" ) );
     this.mieidati.VENOM = Number(window.localStorage.getItem( "FALLlocalVENOM" ) );
+  }
+
+  cambiamark () {
+    this.nummark -- ;
+    this.nummark = this.nummark === -1 ? 4 : this.nummark ;
+    // console.log(this.nummark);
   }
 
 
