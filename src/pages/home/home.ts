@@ -81,6 +81,8 @@ export class HomePage {
   reload() {
     this.mieidati.RAD = Number(window.localStorage.getItem( "FALLlocalRAD" ) );
     this.mieidati.VENOM = Number(window.localStorage.getItem( "FALLlocalVENOM" ) );
+    this.maxRAD = Number(window.localStorage.getItem( "FALLmaxRAD" ) );
+    this.maxVENOM = Number(window.localStorage.getItem( "FALLmaxVENOM" ) );
   }
 
   cambiamark () {

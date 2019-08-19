@@ -145,4 +145,21 @@ export class User {
     return seq;
   }
 
+  update ( accountInfo: any ) {
+    let seq = this.http.post( this.url + 'update.php', accountInfo).share();
+
+    seq.subscribe((res: any) => {
+      // If the API returned a successful response, mark the user as logged in
+      if (res.status == 'success') {
+        this._loggedIn(res);
+      } else {
+        console.error('ERROR');
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
+
+    return seq;
+  }
+
 }
