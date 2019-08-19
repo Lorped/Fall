@@ -184,7 +184,7 @@ export class ChangepxPage {
         {
           text: 'Si',
           handler: () => {
-            submit2() ;
+            this.submit2() ;
           }
         }
       ]
@@ -195,7 +195,7 @@ export class ChangepxPage {
 
   submit2() {
     this.mieidati.px = this.px ;
-    this.user.update(this.mieidati).subscribe((resp) => {
+    this.user.update(this.mieidati).subscribe((resp: any) => {
 
       this.mieidati = resp.user;
       this.olddati = Object.assign({}, this.mieidati);
