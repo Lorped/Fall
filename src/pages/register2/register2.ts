@@ -18,8 +18,8 @@ export class Register2Page {
 
   mieidati = new DatiUtente();
 
-  pxtot = 50;
-  px = 50 ;
+  pxtot = 30;
+  px = 30 ;
 
   constructor(public user: User, public navCtrl: NavController, public navParams: NavParams) {
 

@@ -1,0 +1,119 @@
+!--
+  Generated template for the Register2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="mainbg">
+
+
+  <ion-grid>
+
+
+    <ion-row>
+      <ion-col col-6>
+        <!--  parte a sinistra -->
+        <ion-grid>
+          <ion-row style="text-align: center;">
+            <ion-col col-4 style="border-bottom: 1px solid; border-right: 1px solid; " ><i class="fas fa-cogs verybigicon" (click)="goback();"></i></ion-col>
+            <ion-col col-4><span class="myfont">Change</span></ion-col>
+            <ion-col col-4 style="border-bottom: 1px solid; border-left: 1px solid; " >&nbsp;</ion-col>
+          </ion-row>
+        </ion-grid>
+        <!--  parte a sinistra -corpo -->
+        <ion-grid style="text-align: center;">
+
+
+
+
+
+          <ion-row>
+            <ion-col col-2>&nbsp;</ion-col>
+            <ion-col>Px Disponibili: <br>{{px}}/{{pxtot}}</ion-col>
+            <ion-col col-2>&nbsp;</ion-col>
+          </ion-row>
+          <ion-row>
+          <ion-col>
+            <button ion-button class="mybutton myborder"  block (click)="submit()">Salva</button>
+          </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <!--  FINE parte a sinistra -->
+      </ion-col>
+      <ion-col col-6>
+        <!--  parte a destra -->
+        <ion-grid>
+          <ion-row style="text-align: center;">
+            <ion-col col-4 style="border-bottom: 1px solid; border-right: 1px solid; " >&nbsp;</ion-col>
+            <ion-col col-4><span class="myfont">STAT</span></ion-col>
+            <ion-col col-4 style="border-bottom: 1px solid; border-left: 1px solid; " ><i class="fas fa-chart-bar verybigicon" ></i></ion-col>
+          </ion-row>
+        </ion-grid>
+        <!--  parte a destra - corpo -->
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1><i class="fa fa-heart mygreen"></i></ion-col>
+            <ion-col col-4>Costituzione</ion-col>
+            <ion-col col>
+              <button (click)="cost(-1);" class="mybutton" [disabled]="mieidati.Costituzione==0 || mieidati.Costituzione==olddati.Costituzione" ><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 5 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Costituzione , 'mygreen': ix < mieidati.Costituzione }">&nbsp;</i> <button class="mybutton" (click)="cost(1);" [disabled]="mieidati.Costituzione==5||px<10"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1><i class="fa fa-wrench mygreen"></i></ion-col>
+            <ion-col col-4>Riparazione</ion-col>
+            <ion-col col>
+              <button (click)="ripa(-1);" class="mybutton" [disabled]="mieidati.Riparazione==0 || mieidati.Riparazione==olddati.Riparazione"><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 4 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Riparazione , 'mygreen': ix < mieidati.Riparazione }">&nbsp;</i> <button class="mybutton" (click)="ripa(1);" [disabled]="mieidati.Riparazione==4||px<10||(mieidati.Riparazione>2 && px < 20)"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1><i class="fa fa-medkit mygreen"></i></ion-col>
+            <ion-col col-4>Medicina</ion-col>
+            <ion-col col>
+              <button (click)="medi(-1);" class="mybutton" [disabled]="mieidati.Medicina==0 || mieidati.Medicina==olddati.Medicina"><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 4 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Medicina , 'mygreen': ix < mieidati.Medicina }">&nbsp;</i> <button class="mybutton" (click)="medi(1);" [disabled]="mieidati.Medicina==4||px<10||(mieidati.Medicina>2 && px < 20)"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1><i class="fa fa-key mygreen"></i></ion-col>
+            <ion-col col-4>Scasso</ion-col>
+            <ion-col col>
+              <button (click)="scas(-1);" class="mybutton" [disabled]="mieidati.Scasso==0 || mieidati.Scasso==olddati.Scasso "><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Scasso , 'mygreen': ix < mieidati.Scasso }">&nbsp;</i> <button class="mybutton" (click)="scas(1);" [disabled]="mieidati.Scasso==3||px<10||(mieidati.Scasso>0 && px < 20)"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1><i class="fa fa-bomb mygreen"></i></ion-col>
+            <ion-col col-4>Esplosivi</ion-col>
+            <ion-col col>
+              <button (click)="espl(-1);" class="mybutton" [disabled]="mieidati.Esplosivi==0 || mieidati.Esplosivi==olddati.Esplosivi"><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 5 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Esplosivi , 'mygreen': ix < mieidati.Esplosivi }">&nbsp;</i> <button class="mybutton" (click)="espl(1);" [disabled]="mieidati.Esplosivi==5||px<10"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1><i class="fas fa-chess-rook mygreen"></i></ion-col>
+            <ion-col col-4>Tempra</ion-col>
+            <ion-col col>
+              <button (click)="temp(-1);" class="mybutton" [disabled]="mieidati.Tempra==0 || mieidati.Tempra==olddati.Tempra "><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Tempra , 'mygreen': ix < mieidati.Tempra }">&nbsp;</i> <button class="mybutton" (click)="temp(1);" [disabled]="mieidati.Tempra==3||px<10"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1><i class="fas fa-vial mygreen"></i></ion-col>
+            <ion-col col-4>Chimica</ion-col>
+            <ion-col col>
+              <button (click)="chim(-1);" class="mybutton" [disabled]="mieidati.Chimica==0 || mieidati.Chimica==olddati.Chimica  "><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Chimica , 'mygreen': ix < mieidati.Chimica }">&nbsp;</i> <button class="mybutton" (click)="chim(1);" [disabled]="mieidati.Chimica==3||px<10||(mieidati.Chimica>0 && px < 20)"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-1><i class="fa fa-flask mygreen"></i></ion-col>
+            <ion-col col-4>Scienza</ion-col>
+            <ion-col col>
+              <button (click)="scie(-1);" class="mybutton" [disabled]="mieidati.Scienza==0 || mieidati.Scienza==olddati.Scienza  "><i class="fas fa-minus-circle"></i></button> <i *ngFor="let i of 3 | timesPipe ; let ix = index" class="fa fa-square bigicon" [ngClass]="{'lgreen': ix+1 > mieidati.Scienza , 'mygreen': ix < mieidati.Scienza }">&nbsp;</i> <button class="mybutton" (click)="scie(1);" [disabled]="mieidati.Scienza==3||px<10||(mieidati.Scienza>0 && px < 20)"><i class="fas fa-plus-circle"></i></button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!--  FINE parte a destra -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  </ion-content>

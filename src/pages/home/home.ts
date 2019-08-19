@@ -65,6 +65,10 @@ export class HomePage {
 
   }
 
+  gopx() {
+      this.navCtrl.push('ChangepxPage' , { "parentPage": this  } );
+  }
+
   myRAD() {
     this.navCtrl.push('ChangeradPage' , { "parentPage": this  } );
   }

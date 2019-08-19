@@ -40,6 +40,7 @@ import { HttpClient } from '@angular/common/http';
    public Scienza: number;
    public RAD: number;
    public VENOM: number;
+   public px: number;
    constructor () {
      this.userid = 0;
      this.username = '' ;
@@ -57,6 +58,7 @@ import { HttpClient } from '@angular/common/http';
      this.Scienza = 0;
      this.RAD = 3;
      this.VENOM = 3;
+     this.px = 0;
    }
  }
 
@@ -120,6 +122,7 @@ export class User {
     this._user.Scienza = Number ( this._user.Scienza);
     this._user.RAD = Number ( this._user.RAD);
     this._user.VENOM = Number ( this._user.VENOM);
+    this._user.px = Number ( this._user.px);
 
 
     //console.log(this._user);
