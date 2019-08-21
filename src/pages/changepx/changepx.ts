@@ -234,4 +234,8 @@ export class ChangepxPage {
     // console.log (this.mieidati);
   }
 
+  addpx() {
+    this.navCtrl.push('AddpxPage' , { "parentPage": this  } );
+  }
+
 }
