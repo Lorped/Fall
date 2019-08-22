@@ -238,4 +238,11 @@ export class ChangepxPage {
     this.navCtrl.push('AddpxPage' , { "parentPage": this  } );
   }
 
+  reload() {
+    this.px = this.mieidati.px;
+    this.pxtot = this.mieidati.px;
+    // console.log ('inside reload');
+    // console.log ( this.mieidati.px);
+  }
+
 }

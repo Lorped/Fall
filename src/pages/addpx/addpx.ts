@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User, DatiUtente } from '../../providers/users';
 
 /**
  * Generated class for the AddpxPage page.
@@ -22,7 +23,10 @@ export class AddpxPage {
   passwd = '';
   truepasswd = 'Domizia';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  mieidati = new DatiUtente();
+
+  constructor(public user: User, public navCtrl: NavController, public navParams: NavParams) {
+    this.mieidati = this.user.getinfo();
   }
 
   ionViewDidLoad() {
@@ -50,7 +54,21 @@ export class AddpxPage {
   }
 
   insert() {
-    
+    this.mieidati.px += this.newpx;
+    this.newpx = 0 ;
+    this.passwd = '';
+    this.user.update(this.mieidati).subscribe((resp: any) => {
+
+      this.mieidati = resp.user;
+
+      this.navParams.get("parentPage").reload();
+
+      alert("Aggiornamento Completo");
+
+    }, (err) => {
+      alert("Errore di Aggiornamento");
+    });
+    // console.log (this.mieidati);
   }
 
 }

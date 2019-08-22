@@ -1,20 +1,4 @@
 page-login {
-  .mainbg {
-    background-color: #000000;
-    color: #33ff33;
-    // font-family: 'overseer' !important;
-    //  font-size: 1.8em;
-  }
-  .myfont {
-    font-family: 'overseer' !important;
-    font-size: 2.5em !important;
-    color: #33ff33;
-  }
-  .myclass {
-    background-color: #bbffbb;
-    color: #000000;
-    border: 1px solid  #33ff33;
-  }
 
   .mybutton {
     background-color:#000000 !important;
@@ -22,16 +6,8 @@ page-login {
     border: 1px solid  #bbffbb !important;
   }
 
-  .mylink {
-
-    color: #33ff33 !important;
-    font-size: 0.8em !important;
-    // border: 1px solid  #bbffbb !important;
-  }
-
   button:disabled,
   button[disabled]{
-    //border: 1px solid #999999;
     background-color:#559955;
     color: #666666;
   }
