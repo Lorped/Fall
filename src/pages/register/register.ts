@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { User } from '../../providers/users';
 
 /**
  * Generated class for the RegisterPage page.
@@ -23,7 +24,7 @@ export class RegisterPage {
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public user: User, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -36,8 +37,21 @@ export class RegisterPage {
    }
 
    doLogin() {
-     window.localStorage.setItem( "FALLuserid" , this.account.username );
-     window.localStorage.setItem( "FALLpassword" , this.account.password );
-     this.navCtrl.push('Register2Page');
+     this.user.checkuserid(this.account.username).subscribe((resp) => {
+
+        if (resp.status=='success') {
+          window.localStorage.setItem( "FALLuserid" , this.account.username );
+          window.localStorage.setItem( "FALLpassword" , this.account.password );
+          this.navCtrl.push('Register2Page');
+        } else {
+          alert("Username già presente");
+        }
+
+
+     }, (err) => {
+       console.log("resp: Error");
+     });
+
+
    }
 }

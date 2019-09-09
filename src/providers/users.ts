@@ -158,7 +158,22 @@ export class User {
     }, err => {
       console.error('ERROR', err);
     });
+    return seq;
+  }
 
+  checkuserid ( accountInfo: string ) {
+    let seq = this.http.post( this.url + 'check.php', accountInfo).share();
+    seq.subscribe((res: any) => {
+      // If the API returned a successful response, mark the user as logged in
+      if (res.status == 'success') {
+        //this._loggedIn(res);
+        console.log('OK');
+      } else {
+        console.log('DUPLICATO');
+      }
+    }, err => {
+      console.error('ERROR', err);
+    });
     return seq;
   }
 

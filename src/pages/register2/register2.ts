@@ -26,7 +26,7 @@ export class Register2Page {
     this.mieidati.username = window.localStorage.getItem( "FALLuserid" );
     this.mieidati.passwd = window.localStorage.getItem( "FALLpassword" );
 
-    console.log(this.mieidati);
+    //console.log(this.mieidati);
   }
 
   ionViewDidLoad() {
