@@ -37,7 +37,7 @@ export class RegisterPage {
    }
 
    doLogin() {
-     this.user.checkuserid(this.account.username).subscribe((resp) => {
+     this.user.checkuserid(this.account.username).subscribe((resp: any) => {
 
         if (resp.status=='success') {
           window.localStorage.setItem( "FALLuserid" , this.account.username );
