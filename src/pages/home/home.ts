@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { User, DatiUtente } from '../../providers/users';
 
 
@@ -25,7 +26,7 @@ export class HomePage {
 
   nummark=4;
 
-  constructor(public user: User, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public user: User, public navCtrl: NavController, public navParams: NavParams, private iab: InAppBrowser) {
 
     this.mieidati=this.user.getinfo();
 
@@ -90,6 +91,14 @@ export class HomePage {
     this.nummark = this.nummark === -1 ? 4 : this.nummark ;
     // console.log(this.nummark);
   }
+
+  gomanual() {
+
+  const link = 'https://drive.google.com/file/d/1RLaLbJ-a1HiOsiBEteHmwa2anhY7RLtG/view?usp=sharing';
+  //const browser = this.iab.create(this.link);
+  this.iab.create(link,'_system');
+
+}
 
 
 }
